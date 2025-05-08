@@ -116,9 +116,35 @@ When making changes:
 6. Test URL hash navigation (#slide-id in the URL)
 7. Verify that code syntax highlighting still works
 8. Test on both desktop and mobile screen sizes
+9. Make sure GitHub Pages deployment workflow is not broken
 
 Troubleshooting Common Issues:
 1. If slides don't load, check console for fetch errors (CORS issues are common in local testing)
 2. If syntax highlighting doesn't work, ensure code blocks use proper language identifiers
 3. If slide navigation breaks, check for JavaScript errors in the console
 4. If tables look broken on mobile, ensure data-label attributes are being applied
+
+Deployment and GitHub Pages:
+1. Workflow Configuration (.github/workflows/github-pages.yml):
+   * Configured to deploy automatically when pushing to main branch
+   * Deploys static files to the gh-pages branch
+   * Excludes development files (.github, node_modules, package.json, etc.)
+   * Can be triggered manually from Actions tab if needed
+
+2. Deployment Process:
+   * Commits to main branch trigger the GitHub Actions workflow
+   * The workflow checks out code, installs dependencies, and deploys to gh-pages branch
+   * GitHub Pages serves content from the gh-pages branch
+   * Deployment typically takes 1-3 minutes to complete
+
+3. Common GitHub Pages Issues:
+   * Check Actions tab for workflow run status and error messages
+   * Ensure repository has proper permissions (Settings > Actions > General)
+   * GitHub Pages might need to be enabled in repository settings
+   * Files must be accessible relative to the root path
+   * Image and resource paths must be relative, not absolute
+
+4. Testing Deployment Locally:
+   * Use `npx serve` to test locally before pushing
+   * This simulates how GitHub Pages will serve the content
+   * Commands: `npm install` followed by `npm start`
