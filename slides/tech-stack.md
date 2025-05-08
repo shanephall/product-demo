@@ -1,6 +1,6 @@
 # Enabling Technology Trends
 
-![Side-by-side comparison of AI models working with enterprise systems](images/tech-integration.png)
+![Side-by-side comparison of AI models working with enterprise systems](/images/fighterpilot.jpg)
 
 **Open-Weight Models**
 * Enterprise-grade AI without vendor lock-in (e.g., Qwen3)
