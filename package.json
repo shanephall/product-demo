@@ -1,0 +1,26 @@
+{
+  "name": "Markdown Slides Presentation System",
+  "description": "A simple web-based slide presentation system using Markdown content",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/username/markdown-slides.git"
+  },
+  "keywords": [
+    "markdown",
+    "slides",
+    "presentation",
+    "github-pages"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/username/markdown-slides/issues"
+  },
+  "homepage": "https://username.github.io/markdown-slides/",
+  "scripts": {
+    "start": "serve"
+  },
+  "devDependencies": {
+    "serve": "^14.2.0"
+  }
+}

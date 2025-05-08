@@ -1,0 +1,50 @@
+{
+  "slides": [
+    {
+      "id": "company-intro",
+      "title": "Fast Transients LLC",
+      "filename": "company-intro.md",
+      "order": 1
+    },
+    {
+      "id": "mission",
+      "title": "Our Mission",
+      "filename": "mission.md",
+      "order": 2
+    },    {
+      "id": "market-impact",
+      "title": "Market Impact",
+      "filename": "market-impact.md",
+      "order": 3
+    },
+    {
+      "id": "tech-stack",
+      "title": "Technology Stack",
+      "filename": "tech-stack.md",
+      "order": 4
+    },
+    {
+      "id": "integration-benefits",
+      "title": "Integration Benefits",
+      "filename": "integration-benefits.md",
+      "order": 5
+    },
+    {
+      "id": "target-markets",
+      "title": "Target Markets",
+      "filename": "target-markets.md",
+      "order": 6
+    },    {
+      "id": "implementation",
+      "title": "Implementation Strategy",
+      "filename": "implementation.md",
+      "order": 7
+    },
+    {
+      "id": "next-steps",
+      "title": "Next Steps",
+      "filename": "next-steps.md",
+      "order": 8
+    }
+  ]
+}

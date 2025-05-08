@@ -1,0 +1,81 @@
+Repository Structure and Guidelines for LLMs
+
+Project Overview:
+This is a web-based slide presentation system that uses Markdown files for content. The system is designed to be simple, extensible, and deployable to GitHub Pages.
+
+Key Components:
+
+1. HTML (index.html):
+- Main entry point for the application
+- Uses marked.js for Markdown parsing
+- Uses highlight.js for code syntax highlighting
+
+2. JavaScript Files (js/):
+- app.js: Main application logic, handles:
+  * Slide navigation
+  * Keyboard shortcuts
+  * UI interactions
+  * Event listeners
+- slides.js: Slide management system, handles:
+  * Loading slide content
+  * Slide caching
+  * Slide order management
+
+3. CSS (css/):
+- styles.css: Contains all styling including:
+  * Slide layout and transitions
+  * Responsive design rules
+  * Typography and theme settings
+  * Navigation controls
+
+4. Slides Directory (slides/):
+- index.json: Configuration file defining:
+  * List of all slides
+  * Slide order
+  * Slide metadata (id, title, filename)
+- *.md files: Individual slide content in Markdown format
+
+Common Tasks:
+
+1. Adding New Slides:
+- Create new .md file in slides/
+- Add slide entry to slides/index.json
+- Follow existing slide format for consistency
+- Navigation links in markdown content are no longer required (handled by the UI)
+
+2. Modifying Styles:
+- Main styling in css/styles.css
+- Slide-specific styles under .slide class
+- Media queries handle responsive design
+
+3. Extending Functionality:
+- Add new features to app.js
+- Slide loading logic in slides.js
+- Follow existing patterns for consistency
+
+Best Practices:
+- Keep slide markdown files simple and focused
+- Maintain proper order in index.json
+- Test responsive layouts when making style changes
+- Focus on content clarity and visual impact
+
+Important Notes for LLMs:
+- Always maintain the JSON structure in slides/index.json
+- Navigation between slides is handled by the UI, not in markdown content
+- Keep the slides/ directory organized
+- Respect existing class naming conventions
+- Consider mobile responsiveness when suggesting changes
+- Ensure keyboard shortcuts remain consistent
+
+File Relationships:
+- index.html loads all CSS and JS files
+- app.js depends on slides.js being loaded first
+- Each markdown file should be listed in index.json
+- All slide files must be in the slides/ directory
+
+When making changes:
+1. Check if index.json needs updating with proper order numbers
+2. Test keyboard and button navigation still works
+3. Ensure responsive design isn't broken
+4. Validate any new JavaScript against existing functionality
+5. Verify thumbnails view shows all slides correctly
