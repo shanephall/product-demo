@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50" width="200" height="50">
+  <style>
+    .text { font-family: Arial, sans-serif; font-weight: bold; }
+    .blue { fill: #4a8fff; }
+    .dark { fill: #2c3e50; }
+    .bolt { fill: #4a8fff; }
+  </style>
+  <text x="55" y="35" class="text dark" font-size="24">FAST</text>
+  <text x="115" y="35" class="text blue" font-size="24">TRANSIENTS</text>
+  <path class="bolt" d="M25,5 L5,30 L20,30 L15,45 L40,18 L25,18 L35,5 Z" />
+</svg>

@@ -1,0 +1,150 @@
+Repository Structure and Guidelines for LLMs
+
+Project Overview:
+This is a web-based slide presentation system that uses Markdown files for content. The system is designed to be simple, extensible, and deployable to GitHub Pages.
+
+Key Components:
+
+1. HTML (index.html):
+- Main entry point for the application
+- Uses marked.js for Markdown parsing
+- Uses highlight.js for code syntax highlighting
+- Includes a responsive design for mobile and desktop viewing
+- Contains the basic structure with slide-container, controls, and thumbnails view
+
+2. JavaScript Files (js/):
+- app.js: Main application logic, handles:
+  * Slide navigation (prev/next, keyboard shortcuts)
+  * UI interactions (thumbnails toggle, keyboard shortcuts overlay)
+  * Event listeners (keyboard, buttons, window resizing)
+  * Markdown rendering and code syntax highlighting
+  * Responsive table transformations for mobile
+  * URL hash management for direct slide access
+- slides.js: Slide management system, handles:
+  * Loading slide content from markdown files
+  * Slide content and metadata caching
+  * Slide order management via index.json
+  * Fallback mechanisms when index.json is unavailable
+  
+3. CSS (css/):
+- styles.css: Contains all styling including:
+  * Slide layout and transitions (fade effects)
+  * Responsive design rules (media queries for different screen sizes)
+  * Typography and theme settings
+  * Navigation controls and button styling
+  * Thumbnail view and overlay styling
+  * Presentation background patterns and colors
+  
+4. Slides Directory (slides/):
+- index.json: Configuration file defining:
+  * List of all slides as an array of slide objects
+  * Each slide includes id, title, filename, and order properties
+  * Slide order determines the sequence in the presentation
+- *.md files: Individual slide content in Markdown format
+  * Each file corresponds to a slide entry in index.json
+  * Supports standard Markdown syntax features
+  * Code blocks get automatic syntax highlighting
+
+Common Tasks:
+
+1. Adding New Slides:
+- Create new .md file in slides/ directory
+- Add slide entry to slides/index.json with proper order number
+- Required properties: id, title, filename, order
+- Follow existing slide format for consistency
+- Navigation links in markdown content are no longer required (handled by the UI)
+
+2. Modifying Styles:
+- Main styling in css/styles.css
+- Slide-specific styles under .slide class
+- Media queries handle responsive design at different breakpoints
+- Custom CSS classes can be used in markdown content
+
+3. Extending Functionality:
+- Add new features to app.js following existing patterns
+- Slide loading logic modifications in slides.js
+- New UI components should match existing design language
+- Follow existing event listener patterns for consistency
+
+Best Practices:
+- Keep slide markdown files simple and focused
+- Maintain proper sequential order in index.json
+- Test responsive layouts when making style changes
+- Focus on content clarity and visual impact
+- Use semantic HTML in markdown content when possible
+- Optimize images for web before including them
+
+Important Notes for LLMs:
+- Always maintain the JSON structure in slides/index.json (valid JSON required)
+- Navigation between slides is handled by the UI, not in markdown content
+- Keep the slides/ directory organized with descriptive filenames
+- Respect existing class naming conventions (.slide, .controls, etc.)
+- Consider mobile responsiveness when suggesting changes (tables need special handling)
+- Ensure keyboard shortcuts remain consistent and documented
+- The codebase uses ES6+ JavaScript features
+- The application does not use any JavaScript frameworks, just vanilla JS
+- Slide transitions use CSS opacity for fade effects
+- URL hash is used for direct access to specific slides (#slide-id)
+
+File Relationships:
+- index.html loads all CSS and JS files
+- app.js depends on slides.js being loaded first (check script order in index.html)
+- Each markdown file should be listed exactly once in index.json
+- All slide files must be in the slides/ directory
+- The SlideManager module in slides.js provides the API for slide operations
+
+Keyboard Shortcuts:
+- Left Arrow/Page Up/Up Arrow: Previous slide
+- Right Arrow/Page Down/Down Arrow/Space: Next slide
+- Home: First slide
+- End: Last slide
+- T: Toggle thumbnails view
+- ?: Show keyboard shortcuts help
+- Escape: Close overlays/dialogs
+
+Responsive Design Elements:
+- Tables are transformed for mobile viewing with data-label attributes
+- Font sizes and margins adjust for smaller screens
+- Thumbnail view has different styling on mobile devices
+
+When making changes:
+1. Check if index.json needs updating with proper order numbers
+2. Test keyboard and button navigation still works
+3. Ensure responsive design isn't broken
+4. Validate any new JavaScript against existing functionality
+5. Verify thumbnails view shows all slides correctly
+6. Test URL hash navigation (#slide-id in the URL)
+7. Verify that code syntax highlighting still works
+8. Test on both desktop and mobile screen sizes
+9. Make sure GitHub Pages deployment workflow is not broken
+
+Troubleshooting Common Issues:
+1. If slides don't load, check console for fetch errors (CORS issues are common in local testing)
+2. If syntax highlighting doesn't work, ensure code blocks use proper language identifiers
+3. If slide navigation breaks, check for JavaScript errors in the console
+4. If tables look broken on mobile, ensure data-label attributes are being applied
+
+Deployment and GitHub Pages:
+1. Workflow Configuration (.github/workflows/github-pages.yml):
+   * Configured to deploy automatically when pushing to main branch
+   * Deploys static files to the gh-pages branch
+   * Excludes development files (.github, node_modules, package.json, etc.)
+   * Can be triggered manually from Actions tab if needed
+
+2. Deployment Process:
+   * Commits to main branch trigger the GitHub Actions workflow
+   * The workflow checks out code, installs dependencies, and deploys to gh-pages branch
+   * GitHub Pages serves content from the gh-pages branch
+   * Deployment typically takes 1-3 minutes to complete
+
+3. Common GitHub Pages Issues:
+   * Check Actions tab for workflow run status and error messages
+   * Ensure repository has proper permissions (Settings > Actions > General)
+   * GitHub Pages might need to be enabled in repository settings
+   * Files must be accessible relative to the root path
+   * Image and resource paths must be relative, not absolute
+
+4. Testing Deployment Locally:
+   * Use `npx serve` to test locally before pushing
+   * This simulates how GitHub Pages will serve the content
+   * Commands: `npm install` followed by `npm start`
